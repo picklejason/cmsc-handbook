@@ -1,0 +1,140 @@
+{% extends 'base.html' %} {% block head %} {{ super() }}
+<style>
+  body {
+    margin: 15px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  md-block {
+    white-space: pre;
+    font-family: monospace;
+  }
+</style>
+{% endblock %} {% block content %}
+<div
+  class="wrapper"
+  style="
+    display: flex;
+    margin: 20px;
+    justify-content: space-between;
+    max-width: 75%;
+  "
+>
+  <div
+    class="sidebar"
+    style="
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      width: 25%;
+      height: 25vh;
+    "
+  ></div>
+
+  <div
+    class="col-22 col-md-11 col-xl-9 mx-auto width: 60%; height: 150vh; margin-right:20px"
+  >
+    <div class="text-center">
+      <img
+        class="mb-3"
+        src="/static/robot3.png"
+        alt=""
+        style="height: 250px; border-radius: 50px"
+      />
+      <h1>Resources</h1>
+    </div>
+
+    <h2>More Notes</h2>
+    <ul>
+      <li>
+        <a
+          href="https://github.com/kekesh/CMSC131/blob/master/CMSC131.pdf"
+          target="_blank"
+        >
+          <h3>CMSC131</h3>
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://github.com/kekesh/CMSC132/blob/master/CMSC132.pdf"
+          target="_blank"
+        >
+          <h3>CMSC132</h3>
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://github.com/kekesh/CMSC216/blob/master/CMSC216.pdf"
+          target="_blank"
+        >
+          <h3>CMSC216</h3>
+        </a>
+      </li>
+    </ul>
+    <h2>Debugging in Eclipse</h2>
+    <ul>
+      <li>
+        <a
+          href="https://docs.google.com/document/d/1uoMdmiCnTN9E_2D2ZtCbc6q96fQvh_Ob1urDce_Zopg/edit?usp=sharing"
+          target="_blank"
+        >
+          <h3>Notes</h3>
+        </a>
+      </li>
+    </ul>
+
+    <h2>Coding Interview Preparation</h2>
+    <ul>
+      <li>
+        <a href="https://neetcode.io/" target="_blank">
+          <h3>Neetcode</h3>
+        </a>
+      </li>
+      <li>
+        <a href="https://leetcode.com/" target="_blank">
+          <h3>Leetcode</h3>
+        </a>
+      </li>
+    </ul>
+    <h2>Version Control</h2>
+    <ul>
+      <li>
+        <a href="https://git-scm.com/book/en/v2" target="_blank">
+          <h3>Git</h3>
+        </a>
+      </li>
+    </ul>
+    <h2>Other</h2>
+    <ul>
+      <li>
+        <a
+          href="https://www.interviewcake.com/data-structures-reference"
+          target="_blank"
+        >
+          <h3>Data Structures</h3>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.bigocheatsheet.com/" target="_blank">
+          <h3>Big-O Cheat Sheet</h3>
+        </a>
+      </li>
+      <li>
+        <a href="https://planetterp.com/" target="_blank">
+          <h3>Professor Ratings/Reviews</h3>
+        </a>
+        <ul>
+          <li>
+            <a href="https://github.com/tybug/testudoplus" target="_blank">
+              <h3>Extension</h3>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

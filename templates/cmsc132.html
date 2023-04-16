@@ -1,0 +1,195 @@
+{% extends 'base.html' %} {% block head %} {{ super() }}
+<style>
+  body {
+    margin: 15px;
+    overflow-x: hidden;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  md-block {
+    white-space: pre;
+    font-family: monospace;
+  }
+</style>
+{% endblock %} {% block content %}
+<div
+  class="wrapper"
+  style="
+    display: flex;
+    margin: 20px;
+    justify-content: space-between;
+    max-width: 75%;
+  "
+>
+  <div
+    class="sidebar"
+    style="
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      width: 25%;
+      height: 25vh;
+    "
+  >
+    <section id="toc">
+      <h3>Topics</h3>
+      <ul>
+        <li>
+          <a href="#oop">Object Oriented Programming</a>
+        </li>
+        <li>
+          <a href="#abstract-classes">Abstract Classes</a>
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <div
+    class="col-22 col-md-11 col-xl-9 mx-auto width: 60%; height: 150vh; margin-right:20px"
+  >
+    <div class="text-center">
+      <img
+        class="mb-3"
+        src="/static/robot2.png"
+        alt=""
+        style="height: 250px; border-radius: 50px"
+      />
+      <h1>CMSC 132</h1>
+    </div>
+    <section id="oop">
+      <h2>Object Oriented Programming</h2>
+      <p>
+        Object-oriented programming (OOP) is a programming paradigm that is
+        based on the concept of objects. An object is an instance of a class,
+        which is a blueprint or template for creating objects. In OOP, you
+        define classes that encapsulate data and behavior, and then you create
+        objects from those classes that can interact with each other.
+
+        <br /><br />
+        There are four main concepts in OOP: encapsulation, inheritance,
+        polymorphism, and abstraction.
+
+        <br /><br />
+        <b>Encapsulation</b> is the idea of bundling data and behavior together
+        into a single unit called a class. This is done to protect the data from
+        outside interference and to make it easier to manage and modify.
+        Encapsulation is achieved through the use of access modifiers, such as
+        public, private, and protected, which control the visibility of data and
+        methods within a class.
+
+        <br /><br />
+        <b>Inheritance</b> is the idea of creating new classes that are based on
+        existing classes. The new classes, called subclasses or derived classes,
+        inherit the properties and methods of the existing classes, called
+        superclasses or base classes. Inheritance is used to create specialized
+        versions of existing classes, and it allows you to reuse code and avoid
+        duplication.
+
+        <br /><br />
+        <b>Polymorphism</b> is the idea of using a single interface to represent
+        multiple types of objects. Polymorphism is achieved through the use of
+        interfaces and abstract classes, which define a set of methods that can
+        be implemented differently by different classes. Polymorphism allows you
+        to write more flexible and reusable code that can work with objects of
+        different types without needing to know the specific implementation
+        details of each object.
+
+        <br /><br />
+        <b>Abstraction</b> is the idea of focusing on the essential features of
+        an object or system while ignoring the non-essential details.
+        Abstraction is achieved through the use of abstract classes and
+        interfaces, which define a set of methods that must be implemented by
+        subclasses. Abstraction allows you to write code that is more general
+        and can be applied to a wider range of objects or systems.
+      </p>
+    </section>
+    <section id="abstract-classes">
+      <h2>Abstract Classes</h2>
+      <p>
+        In Java, an abstract class is a class that cannot be instantiated
+        directly. Instead, it is meant to serve as a blueprint or template for
+        other classes to inherit from. Abstract classes are declared using the
+        abstract keyword in the class definition. An abstract class can contain
+        both abstract and non-abstract methods. An abstract method is a method
+        that has no implementation and is declared using the abstract keyword in
+        the method signature. Any class that inherits from an abstract class
+        must either provide an implementation for all of the abstract methods in
+        the abstract class, or be declared as abstract itself. Here is an
+        example of an abstract class in Java:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+            ```java 
+            public abstract class Shape {
+              protected int x;
+              protected int y;
+          
+              public Shape(int x, int y) {
+                  this.x = x;
+                  this.y = y;
+              }
+          
+              public abstract double getArea();
+          
+              public abstract double getPerimeter();
+          
+              public void printLocation() {
+                  System.out.println("Location: (" + x + ", " + y + ")");
+              }
+            }
+            ```
+          </md-block>
+      <p>
+        In this example, the <code>Shape</code> class is declared as abstract,
+        and has two instance variables, <code>x</code> and <code>y</code>. The
+        class also has three methods, <code>getArea()</code>,
+        <code></code>getPerimeter(), and <code></code>printLocation(). The first
+        two methods are declared as abstract, while the third method has a
+        default implementation. Any class that inherits from the
+        <code>Shape</code> class must implement the <code>getArea()</code> and
+        <code>getPerimeter()</code> methods, or be declared as abstract itself.
+        For example:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+            ```java 
+            public class Rectangle extends Shape {
+              private double width;
+              private double height;
+          
+              public Rectangle(int x, int y, double width, double height) {
+                  super(x, y);
+                  this.width = width;
+                  this.height = height;
+              }
+          
+              public double getArea() {
+                  return width * height;
+              }
+          
+              public double getPerimeter() {
+                  return 2 * (width + height);
+              }
+            }
+            ```
+          </md-block>
+      <p>
+        In this example, the <code>Rectangle</code> class inherits from the
+        <code>Shape</code> class, and provides implementations for the
+        <code>getArea()</code> and <code>getPerimeter()</code> methods. It also
+        has its own instance variables, <code>width </code> and
+        <code>height</code>, and a constructor that takes four parameters.
+        Abstract classes are useful for creating a hierarchy of related classes,
+        where the abstract class defines common behavior and properties, and the
+        concrete subclasses provide more specific implementations. Abstract
+        classes can also help enforce consistency and reduce duplication in a
+        program's codebase.
+      </p>
+    </section>
+  </div>
+</div>
+<script src="../static/prism.js"></script>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block head %} {{ super() }}
+<style>
+  h1 {
+    font-size: 4rem;
+  }
+</style>
+{% endblock %} {% block content %}
+<div class="text-center mt-5">
+  <img
+    class="mb-3"
+    src="/static/robot_book.png"
+    alt=""
+    style="height: 400px; border-radius: 100px"
+  />
+  <div class="container mt-3">
+    <h1>CMSC Handbook</h1>
+    <p>
+      A collection of notes and resources for computer science courses at the
+      University of Maryland, College Park.
+    </p>
+  </div>
+</div>
+<script src="../static/prism.js"></script>
+{% endblock %}

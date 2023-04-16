@@ -1,0 +1,1054 @@
+{% extends 'base.html' %} {% block head %} {{ super() }}
+<style>
+  body {
+    margin: 15px;
+    overflow-x: hidden;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  md-block {
+    white-space: pre;
+    font-family: monospace;
+  }
+</style>
+{% endblock %} {% block content %}
+<div
+  class="wrapper"
+  style="
+    display: flex;
+    margin: 20px;
+    justify-content: space-between;
+    max-width: 75%;
+  "
+>
+  <div
+    class="sidebar"
+    style="
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      width: 25%;
+      height: 25vh;
+    "
+  >
+    <section id="toc">
+      <h3>Topics</h3>
+      <ul>
+        <li>
+          <a href="#introduction">Introduction</a>
+        </li>
+        <li>
+          <a href="#variables">Variables</a>
+        </li>
+        <li>
+          <a href="#objects">Objects</a>
+          <ul>
+            <li>
+              <a href="#classes">Classes</a>
+            </li>
+            <li>
+              <a href="#instance-variables">Instance Variables</a>
+            </li>
+            <li>
+              <a href="#constructors">Constructors</a>
+            </li>
+            <li>
+              <a href="#this">this</a>
+            </li>
+            <li>
+              <a href="#methods">Methods</a>
+              <ul>
+                <li>
+                  <a href="#equals">equals()</a>
+                </li>
+                <li>
+                  <a href="#toString">toString()</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#loops">Loops</a>
+        </li>
+        <li>
+          <a href="#arrays">Arrays</a>
+        </li>
+        <li>
+          <a href="#2-d arrays">2-D Arrays</a>
+        </li>
+        <li>
+          <a href="#stringbuffer">StringBuffer</a>
+        </li>
+        <li>
+          <a href="#exceptions">Exceptions</a>
+        </li>
+        <li>
+          <a href="#switch-statement">Switch Statement</a>
+        </li>
+        <li>
+          <a href="#ternary-operator">Ternary Operator</a>
+        </li>
+        <li>
+          <a href="#recursion">Recursion</a>
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <div
+    class="col-22 col-md-11 col-xl-9 mx-auto width: 60%; height: 150vh; margin-right:20px"
+  >
+    <div class="text-center">
+      <img
+        class="mb-3"
+        src="/static/robot1.png"
+        alt=""
+        style="height: 250px; border-radius: 50px"
+      />
+      <h1>CMSC 131</h1>
+    </div>
+    <section id="introduction">
+      <h2>Introduction</h2>
+      <p>
+        Java is an object-oriented programming language. Let's look at our first
+        Java program:
+      </p>
+
+      <!-- prettier-ignore -->
+      <md-block>
+            ```java
+            public class HelloWorld {
+              public static void main(String[] args) {
+                  System.out.println("Hello World!");
+              }
+            }
+            ```
+          </md-block>
+      <p>The first line defines a class called HelloWorld.</p>
+      <!-- prettier-ignore -->
+      <md-block>
+            ```java
+              public class HelloWorld {
+            ```
+          </md-block>
+      <p>The following line is:</p>
+      <!-- prettier-ignore -->
+      <md-block>
+            ```java
+              public static void main(String[] args) {
+            ```
+          </md-block>
+      <p>
+        This is the main method. It is the entry point of the program. It tells
+        the compiler where to start executing the program. Every Java program
+        must have a main method.
+      </p>
+      <ul>
+        <li><code>public</code> - any class can access this method.</li>
+        <li>
+          <code>static</code> - this method belongs to the class and not an
+          object. This means that you do not need to create an instace of the
+          class to call the main method.
+        </li>
+        <li><code>void</code> - this method does not return a value.</li>
+        <li><code>main</code> - the name of the method.</li>
+      </ul>
+    </section>
+
+    <section id="variables">
+      <h2>Variables</h2>
+      A variable is a piece of memory that can store a specified type of value.
+      These are similar to the variables that we see in algebra class, like x or
+      y. In Java, there are several different data types of variables, for
+      example:
+      <!-- prettier-ignore -->
+      <md-block>
+        ```java
+        String name = "Hello";
+        int age = 21;
+        float gpa = 3.5;
+        char grade = 'A';
+        boolean isTall = true;
+        ```
+      </md-block>
+      <ul>
+        <li>
+          The <code>String</code> type stores text and are surrounded by double
+          quotes.
+        </li>
+        <li>The <code>int</code> type stores integers (whole numbers).</li>
+        <li>
+          The <code>float</code> type stores floating point numbers, with
+          decimals.
+        </li>
+        <li>
+          The <code>char</code> type stores single characters and are surrounded
+          by single quotes.
+        </li>
+        <li>
+          The <code>boolean</code> type stores values with two states: either
+          <code>true</code> or <code>false</code>.
+        </li>
+      </ul>
+    </section>
+    <section id="objects">
+      <h2>Objects</h2>
+      <p>
+        In Java, an object is an instance of a class. A class is a blueprint for
+        creating objects.
+      </p>
+      <section id="classes">
+        <h3>Classes</h3>
+        <!-- prettier-ignore -->
+        <md-block>
+            ```java
+            public class Person {
+              private String name;
+              private int age;
+          
+              public Person(String name, int age) {
+                  this.name = name;
+                  this.age = age;
+              }
+          
+              public void printInfo() {
+                  System.out.println("Name: " + name);
+                  System.out.println("Age: " + age);
+              }
+          
+              public void setName(String name) {
+                  this.name = name;
+              }
+          
+              public void setAge(int age) {
+                  this.age = age;
+              }
+            }
+            
+            public class Main {
+                public static void main(String[] args) {
+                    // create a new Person object
+                    Person person = new Person("John Doe", 30);
+            
+                    // use the object's methods to set and get data
+                    person.setName("Jane Doe");
+                    person.setAge(25);
+                    person.printInfo();
+                }
+            }
+            ```
+          </md-block>
+
+        <section id="instance-variables">
+          <h4>Instance Variables</h4>
+          <p>
+            In Java, an instance variable is a variable that is declared within
+            a class, but outside of any method or constructor. Instance
+            variables represent the state of an object, and each instance of a
+            class has its own set of instance variables. In the example above,
+            we define a Person class that has two instance variables:
+            <code>name</code> and <code>age</code>. We then define a constructor
+            that takes two parameters (name and age) and initializes the
+            corresponding instance variables.
+          </p>
+        </section>
+        <section id="constructors">
+          <h4>Constructors</h4>
+          <p>
+            A constructor is a special method that is used to initialize
+            objects. The constructor is called when an object of a class is
+            created. It can be used to set initial values for object attributes.
+            In the example above, we define a constructor that takes two
+            parameters (name and age) and initializes the corresponding instance
+            variables.
+          </p>
+          <!-- prettier-ignore -->
+          <md-block>
+                ```java
+                public Person(String name, int age) {
+                    this.name = name;
+                    this.age = age;
+                }
+                ```
+              </md-block>
+        </section>
+        <section id="this">
+          <h4>this</h4>
+          <p>
+            In Java, <code>this</code> is a keyword that refers to the current
+            object instance. You can use this to refer to instance variables or
+            methods within the same class. In the example above, we use
+            <code>this</code> to refer to the instance variables
+            <code>name</code> and <code>age</code> in the constructor. Using
+            this is particularly useful when you have a local variable with the
+            same name as an instance variable. In this case, using this allows
+            you to refer to the instance variable specifically, rather than the
+            local variable. For example:
+          </p>
+          <!-- prettier-ignore -->
+          <md-block>
+                ```java
+                  public class Person {
+                    private String name;
+                
+                    public Person(String name) {
+                        String name = "John"; // define a local variable with the same name as the instance variable
+                        this.name = name; // set the instance variable to the value of the local variable using "this"
+                    }
+                  }
+                ```
+              </md-block>
+          <p>
+            In this example, we define a Person class with a constructor that
+            takes a name parameter and defines a local variable with the same
+            name. We use <code>this.name</code> to set the instance variable to
+            the value of the local variable. Overall, <code>this</code> is a
+            useful keyword in Java that allows you to refer to the current
+            object instance and its instance variables and methods. By using
+            <code>this</code>, you can make your code more readable and avoid
+            naming conflicts between local and instance variables.
+          </p>
+        </section>
+        <section id="methods">
+          <h3>Methods</h3>
+          <p>
+            In Java, a method is a block of code that performs a specific task.
+            It is a reusable piece of code that can be called from other parts
+            of the program whenever needed. A method can take input in the form
+            of parameters, and can also return a value as output. The general
+            syntax of a method in Java is:
+          </p>
+          <!-- prettier-ignore -->
+          <md-block>
+                ```
+                access-modifier return-type method-name(parameter-list) {
+                    // method body
+                }
+                ```
+              </md-block>
+          <p>
+            A method has a <code>public</code> or <code>private</code> access
+            modifier, a return type (void or a data type), a name, and a
+            parameter list (optional). The method body contains the code that is
+            executed when the method is called.
+          </p>
+          <ul>
+            <li>
+              <code>public</code> - everyone can call / execute the method
+            </li>
+            <li>
+              <code>private</code> - only other methods of the class can call
+              the method
+            </li>
+            <li><code>void</code> - the method does not return any value</li>
+          </ul>
+          <p>
+            Here is an example of a method that takes two integer parameters and
+            returns their sum:
+          </p>
+          <!-- prettier-ignore -->
+          <md-block>
+                ```java
+                public int sum(int a, int b) {
+                    return a + b;
+                }
+                ```
+              </md-block>
+          <p>
+            In the example above, we define a method called
+            <code>sum</code> that takes two integer parameters and returns their
+            sum. We can call this method from other parts of the program by
+            passing in two integer values as arguments:
+          </p>
+          <!-- prettier-ignore -->
+          <md-block>
+                ```java
+                int result = sum(5, 10); // call the sum method and pass in two integer values
+                System.out.println(result); // print the result
+                ```
+              </md-block>
+          <p>
+            In the example above, we call the <code>sum</code> method and pass
+            in two integer values (5 and 10). The method returns the sum of
+            these two values, which we store in the
+            <code>result</code> variable. We then print the value of the
+            <code>result</code> variable to the console.
+          </p>
+          <p>
+            Methods can be very useful for organizing code and making it more
+            modular and reusable. By breaking a program down into smaller, more
+            manageable pieces, it becomes easier to read, understand, and
+            maintain.
+          </p>
+          <section id="equals">
+            <h4>equals() Method</h4>
+            <p>
+              The <code>equals()</code> method is a method that is used to check
+              if two objects have the same content, <code>==</code> checks if
+              two reference variables have the same value, not the content of
+              the object
+            </p>
+            <!-- prettier-ignore -->
+            <md-block>
+                  ```java
+                  public boolean equals(Object obj) {
+                      // check if the object is compared with itself
+                      if (obj == this) {
+                          return true;
+                      }
+                
+                      // check if the object is an instance of A or not
+                      if (!(obj instanceof A)) {
+                          return false;
+                      }
+                
+                      // typecast obj to A so that we can compare data members
+                      A a = (A) obj;
+                
+                      /* Specific comparison based on A fields appears here */
+                  }
+                  ```
+                </md-block>
+          </section>
+          <section id="toString">
+            <h4>toString() Method</h4>
+            <p>
+              The <code>toString()</code> method is a method that is used to
+              return a string representation of an object. it is often useful to
+              override the <code>toString()</code> method in order to provide a
+              more meaningful string representation of the object. This can be
+              done by defining a <code>toString()</code> method in the class and
+              providing an implementation that returns a custom string. For
+              example:
+            </p>
+            <!-- prettier-ignore -->
+            <md-block>
+                  ```java
+                  public class Person {
+                    private String name;
+                    private int age;
+                  
+                    public Person(String name, int age) {
+                      this.name = name;
+                      this.age = age;
+                    }
+                  
+                    @Override
+                    public String toString() {
+                      return "Person [name=" + name + ", age=" + age + "]";
+                    }
+                  }
+                  
+                  Person p = new Person("Alice", 25);
+                  System.out.println(p.toString()); // Output: Person [name=Alice, age=25]
+                  ```
+                </md-block>
+            <p>
+              In this example, the Person class defines a
+              <code>toString()</code> method that returns a string consisting of
+              the person's name and age. This provides a more meaningful
+              representation of the object than the default implementation. By
+              providing a custom implementation of the
+              <code>toString()</code> method, it becomes easier to debug and
+              understand the behavior of the program, especially when working
+              with complex data structures.
+            </p>
+          </section>
+        </section>
+      </section>
+    </section>
+    <section id="loops">
+      <h2>Loops</h2>
+      <p>
+        In programming, loops are used to execute a set of statements repeatedly
+        until a condition is met. In Java, there are mainly three types of
+        loops: for loop, while loop, and do-while loop.
+      </p>
+      <h5>For Loop</h5>
+      <p>
+        The for loop is used to execute a set of statements for a fixed number
+        of times. Here's the basic syntax of the for loop in Java:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+      ```java
+      for (initialization; condition; update) {
+          // statements to be executed repeatedly
+      }
+      ```
+      </md-block>
+      <p>
+        The initialization part is executed only once at the beginning of the
+        loop. The condition is evaluated before each iteration of the loop. If
+        the condition is true, the statements inside the loop are executed;
+        otherwise, the loop terminates. The increment/decrement statement is
+        executed after each iteration of the loop. Here's an example of using
+        the for loop to print the numbers from 1 to 5:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+      ```java
+      for (int i = 1; i <= 5; i++) {
+        System.out.println(i);
+      }
+      ```
+      </md-block>
+      <h5>While Loop</h5>
+      <p>
+        The while loop is used to execute a set of statements repeatedly as long
+        as a condition is true. Here's the basic syntax of the while loop in
+        Java:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+      ```java
+      while (condition) {
+          // statements to be executed repeatedly
+      }
+      ```
+      </md-block>
+      <p>
+        The condition is evaluated before each iteration of the loop. If the
+        condition is true, the statements inside the loop are executed;
+        otherwise, the loop terminates. Here's an example of using the while
+        loop to print the numbers from 1 to 5:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+      ```java
+      int i = 1;
+      while (i <= 5) {
+        System.out.println(i);
+        i++;
+      }
+      ```
+      </md-block>
+      <h5>Do-while Loop</h5>
+      <p>
+        The do-while loop is similar to the while loop, except that the
+        condition is evaluated at the end of each iteration of the loop. This
+        means that the statements inside the loop are executed at least once.
+        Here's the basic syntax of the do-while loop in Java:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+      ```java
+      do {
+          // statements to be executed repeatedly
+      } while (condition);
+      ```
+      </md-block>
+      <p>
+        The statements inside the loop are executed at least once, and then the
+        condition is evaluated. If the condition is true, the loop continues;
+        otherwise, the loop terminates. Here's an example of using the do-while
+        loop to print the numbers from 1 to 5:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+      ```java
+      int i = 1;
+      do {
+        System.out.println(i);
+        i++;
+      } while (i <= 5);
+      ```
+      </md-block>
+      <h5>Loop control statements</h5>
+      <p>
+        Java provides some loop control statements that allow you to modify the
+        behavior of loops. These include <code>break</code>,
+        <code>continue</code>, and <code>return</code>. break is used to
+        terminate a loop early, continue is used to skip the current iteration
+        of a loop, and return is used to exit a method. Here's an example of
+        using break and continue in a for loop:
+      </p>
+
+      <!-- prettier-ignore -->
+      <md-block>
+      ```java
+      for (int i = 1; i <= 5; i++) {
+        if (i == 3) {
+            continue; // skip the iteration when i is 3
+        }
+        if (i == 4) {
+            break; // exit the loop when i is 4
+        }
+        System.out.println(i);
+      }
+      ```
+      </md-block>
+      <p>
+        In this example, when <code>i</code> is 3, the continue statement skips
+        the remaining statements in the loop and moves on to the next iteration.
+        When <code>i</code> is 4, the break statement exits the loop completely.
+      </p>
+    </section>
+
+    <section id="arrays">
+      <h2>Arrays</h2>
+      <p>
+        In Java, an array is a data structure that stores a fixed-size
+        sequential collection of elements of the same data type. Each element in
+        the array is identified by an index number, starting from 0.
+      </p>
+      <h5>Declaring and Initializing an Array</h5>
+      <p>
+        To declare an array in Java, you need to specify the data type of the
+        elements and the size of the array. For example, to declare an array of
+        integers with 5 elements, you can use the following code:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+        ```java 
+          int[] myArray = new int[5];
+        ```
+      </md-block>
+      <p>
+        To initialize the array with values, you can assign values to each
+        element using the index number, as shown below:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+        ```java
+          myArray[0] = 1;
+          myArray[1] = 2;
+          myArray[2] = 3;
+          myArray[3] = 4;
+          myArray[4] = 5;
+        ```
+      </md-block>
+      <p>You can also initialize an array during declaration, like this:</p>
+      <!-- prettier-ignore -->
+      <md-block>
+        ```java
+        int[] myArray = {1, 2, 3, 4, 5};
+        ```
+      </md-block>
+    </section>
+    <h5>Accessing Array Elements</h5>
+    <p>
+      You can access the elements of an array using their index number. For
+      example, to access the second element in the above array, you can use the
+      following code:
+    </p>
+    <!-- prettier-ignore -->
+    <md-block>
+        ```java
+        int secondElement = myArray[1];
+        ```
+      </md-block>
+    <h5>Iterating over an Array</h5>
+    <p>
+      To iterate over an array, you can use a for loop. For example, to print
+      all the elements in the array, you can use the following code:
+    </p>
+    <!-- prettier-ignore -->
+    <md-block>
+        ```java
+        for (int i = 0; i < myArray.length; i++) {
+          System.out.println(myArray[i]);
+        }
+        ```
+      </md-block>
+    <p>
+      In this example, the <code>myArray.length</code> returns the number of
+      elements in the array.
+    </p>
+    <h5>Array Methods</h5>
+    <p>
+      Arrays in Java have a number of useful methods that can be used to perform
+      common operations. Here are some of the most commonly used methods:
+    </p>
+    <ul>
+      <li>
+        <code>Arrays.sort(array)</code> - Sorts the elements of the array in
+        ascending order.
+      </li>
+      <li>
+        <code>Arrays.toString(array)</code> - Returns a string representation of
+        the array.
+      </li>
+      <li>
+        <code>Arrays.fill(array, value)</code> - Fills the array with the
+        specified value.
+      </li>
+      <li>
+        <code>Arrays.equals(array1, array2)</code> - Returns true if the two
+        arrays have the same length and contain the same elements.
+      </li>
+    </ul>
+    <section id="2-d arrays">
+      <h2>2-D Arrays</h2>
+      <p>
+        In Java, a 2-dimensional (2D) array is an array of arrays, where each
+        element of the 2D array is itself an array. It is also referred to as a
+        matrix or table. Here's the basic syntax for creating a 2D array in
+        Java:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+        ```java
+          dataType[][] arrayName = new dataType[rows][columns];
+        ```
+      </md-block>
+      <p>
+        Here, dataType is the data type of the elements of the array (e.g. int,
+        double, String, etc.), rows is the number of rows in the array, and
+        columns is the number of columns in the array. For example, here's how
+        you can create a 2D integer array with 3 rows and 4 columns:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+        ```java
+          int[][] matrix = new int[3][4];
+        ```
+      </md-block>
+      <p>
+        This creates a 2D integer array with 3 rows and 4 columns, where each
+        element is initialized to 0 by default. You can access elements of a 2D
+        array using their indices. The first index represents the row number,
+        and the second index represents the column number. For example, to
+        access the element in the second row and third column of the matrix
+        array created above, you would use the following code:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+        ```java
+          int value = matrix[1][2];
+        ```
+      </md-block>
+      <p>
+        Note that arrays in Java are zero-indexed, which means the first index
+        is 0, not 1. So in the above example, the second row is accessed using
+        the index 1, and the third column is accessed using the index 2. You can
+        also initialize a 2D array with values when you create it, like this:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+        ```java
+        int[][] matrix = {
+          {1, 2, 3, 4},
+          {5, 6, 7, 8},
+          {9, 10, 11, 12}
+        };
+        ```
+      </md-block>
+      <p>
+        This creates a 2D integer array with 3 rows and 4 columns, with the
+        specified values in each element. To iterate over a 2D array in Java,
+        you can use nested loops. For example, to print out all the elements of
+        the matrix array created above, you can use the following code:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+        ```java
+          for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+          }
+        ```
+      </md-block>
+      <p>
+        This code loops over each row of the array (i), and then loops over each
+        column of the current row (j). It then prints out the value of the
+        current element, followed by a space. Finally, it prints a newline
+        character to move to the next row. In general, 2D arrays are useful when
+        you need to represent data in a tabular format, such as a spreadsheet or
+        a chess board.
+      </p>
+    </section>
+    <section id="stringbuffer">
+      <h2>StringBuffer</h2>
+      <p>
+        The StringBuffer class in Java is used to create mutable (modifiable)
+        strings. Unlike String objects, which are immutable, StringBuffer
+        objects can be modified. This means that you can change the characters
+        in a StringBuffer object after it has been created.
+      </p>
+      <h5>Creating a StringBuffer</h5>
+      <p>To create a StringBuffer object, you can use the following syntax:</p>
+      <!-- prettier-ignore -->
+      <md-block>
+            ```java
+              StringBuffer sb = new StringBuffer();
+            ```
+          </md-block>
+      <p>
+        This creates an empty StringBuffer object with a default capacity of 16
+        characters. You can also specify the initial capacity of the
+        StringBuffer object when you create it. For example, the following code
+        creates a StringBuffer object with an initial capacity of 32 characters:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+            ```java
+              StringBuffer sb = new StringBuffer(32);
+            ```
+          </md-block>
+      <p>
+        You can also create a StringBuffer object from a String object. For
+        example, the following code creates a StringBuffer object from the
+        String object "Hello World":
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+            ```java
+              StringBuffer sb = new StringBuffer("Hello World");
+            ```
+          </md-block>
+      <h5>Modifying a StringBuffer</h5>
+      <p>
+        Once you have created a StringBuffer object, you can modify it by using
+        the following methods:
+      </p>
+      <ul>
+        <li>
+          <code>sb.append(string)</code> - concatenates the specified string to
+          the end of the StringBuffer object
+        </li>
+        <li>
+          <code>sb.insert(index, string)</code> - inserts the specified string
+          at the specified index
+        </li>
+        <li>
+          <code>sb.replace(beginIndex, endIndex, string)</code> - replaces the
+          characters in a substring of the StringBuffer object with the
+          specified string
+        </li>
+        <li>
+          <code>sb.delete(beginIndex, endIndex)</code> - removes the characters
+          in a substring of the StringBuffer object
+        </li>
+      </ul>
+    </section>
+    <section id="exceptions">
+      <h2>Exceptions</h2>
+      <p>
+        An exception is an event that occurs during the execution of a program
+        that disrupts the normal flow of instructions. Exceptions are usually
+        caused by errors in the code, such as trying to access an array element
+        that doesn't exist, or trying to divide a number by zero. Java provides
+        a robust exception handling mechanism that allows you to catch and
+        handle exceptions gracefully, so that your program can recover from
+        unexpected situations and continue to execute. Here's an example of how
+        to use try-catch block to handle exceptions:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+            ```java
+              try {
+                // code that might throw an exception
+              } catch (ExceptionType e) {
+                // code to handle ExceptionType
+              } finally {
+                // code to be executed regardless of whether an exception is thrown
+              }
+            ```
+          </md-block>
+      <p>
+        In this example, the try block contains the code that may throw an
+        exception. If an exception is thrown, the program jumps to the
+        appropriate catch block that handles the specific type of exception that
+        was thrown. If an exception is not thrown, the program skips the catch
+        blocks and runs the finally block. The finally block contains code that
+        runs regardless of whether an exception was thrown or not. This is
+        useful for cleaning up resources, closing files, and releasing memory.
+        You can also throw your own exceptions using the throw keyword:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+            ```java
+            if (condition) {
+              throw new ExceptionType("Exception message");
+            }
+            ```
+          </md-block>
+      <p>
+        In this example, we use the throw keyword to throw a new instance of
+        ExceptionType with a custom message. You can catch this exception and
+        handle it just like any other exception. Java provides many built-in
+        exception classes, such as
+        <code>ArithmeticException</code>, <code>NullPointerException</code>,
+        <code>ArrayIndexOutOfBoundsException</code>, and many more. You can also
+        create your own custom exception classes by extending the Exception or
+        RuntimeException class.
+      </p>
+    </section>
+    <section id="switch-statement">
+      <h2>Switch Statement</h2>
+      <p>
+        Switch statements are a type of control flow statement in Java that
+        allow you to execute different blocks of code depending on the value of
+        a variable or expression. They are often used as an alternative to
+        multiple if-else statements when there are a large number of possible
+        cases. The syntax for a switch statement is as follows:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+            ```java
+              switch (expression) {
+                case value1:
+                  // code to be executed if expression == value1
+                  break;
+                case value2:
+                  // code to be executed if expression == value2
+                  break;
+                // more cases can be added here
+                default:
+                  // code to be executed if none of the above cases match
+                  break;
+              }
+            ```
+          </md-block>
+      <p>
+        Here, expression is the variable or expression whose value is being
+        tested. Each case statement specifies a value to be tested against
+        expression. If expression matches a case value, the code block following
+        that case statement is executed until a break statement is encountered.
+        If no case values match, the default block is executed. Here is an
+        example of a switch statement in Java:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+            ```java 
+            int dayOfWeek = 3;
+            String dayName;
+
+            switch (dayOfWeek) {
+              case 1:
+                dayName = "Monday";
+                break;
+              case 2:
+                dayName = "Tuesday";
+                break;
+              case 3:
+                dayName = "Wednesday";
+                break;
+              case 4:
+                dayName = "Thursday";
+                break;
+              case 5:
+                dayName = "Friday";
+                break;
+              case 6:
+                dayName = "Saturday";
+                break;
+              case 7:
+                dayName = "Sunday";
+                break;
+              default:
+                dayName = "Invalid day";
+                break;
+            }
+
+            System.out.println("Today is " + dayName);
+            ```
+          </md-block>
+      <p>
+        In this example, the switch statement is used to determine the name of
+        the day of the week based on the value of <code>dayOfWeek</code>. If
+        <code>dayOfWeek</code> is 3, the code block following the
+        <code>case 3</code>: statement is executed, and <code>dayName</code> is
+        set to "Wednesday". The final output of the program is "Today is
+        Wednesday".
+      </p>
+    </section>
+    <section id="ternary-operator">
+      <h2>Ternary Operator</h2>
+      <p>
+        The ternary operator is a shorthand way of writing an if-else statement
+        in Java. It is often used to assign a value to a variable based on a
+        condition. The syntax for the ternary operator is as follows:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+            ```java
+            booleanExpression ? value1 : value2
+            ```
+          </md-block>
+      <p>
+        Here, booleanExpression is the expression that is evaluated to either
+        true or false. If the expression is true, then the value value1 is
+        returned, otherwise the value value2 is returned. For example, consider
+        the following code snippet:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+            ```java
+            int x = 10;
+            int y = (x > 5) ? 20 : 30;
+            ```
+          </md-block>
+      <p>
+        Here, we use the ternary operator to assign the value of y. The boolean
+        expression x > 5 evaluates to true because x is indeed greater than 5.
+        Therefore, the value of y is set to 20. If the expression had evaluated
+        to false, the value of y would have been set to 30. Note that the
+        ternary operator should only be used for simple if-else statements that
+        return a single value. For more complex logic, it is recommended to use
+        a full if-else statement for clarity and readability.
+      </p>
+    </section>
+    <section id="recursion">
+      <h2>Recursion</h2>
+      <p>
+        Recursion is a programming technique in which a function calls itself to
+        perform a specific task. It is a useful technique in solving problems
+        that can be broken down into smaller, simpler problems that can be
+        solved by repeating the same process over and over again. In a recursive
+        function, the function calls itself with a slightly simpler version of
+        the problem until a base case is reached, where the function does not
+        need to call itself anymore and returns a value. The returned value is
+        then used to compute the final result of the original problem. Here is a
+        simple example of a recursive function in Java that computes the
+        factorial of a given number:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+            ```java
+            public static int factorial(int n) {
+              if (n == 0) {  // base case
+                return 1;
+              } else {       // recursive case
+                return n * factorial(n-1);
+              }
+            }
+            ```
+          </md-block>
+      <p>
+        In this example, the base case is when <code>n</code> equals 0, which
+        returns 1 since 0! = 1. The recursive case is when <code>n</code> is
+        greater than 0, in which case the function calls itself with
+        <code>n-1</code> as the argument and multiplies the result by
+        <code>n</code>. The function keeps calling itself with decreasing values
+        of <code>n</code> until it reaches the base case, at which point it
+        returns the final result. It is important to note that recursion can
+        lead to stack overflow errors if not implemented properly, especially
+        when dealing with large input values. However, when used correctly, it
+        can provide an elegant and efficient solution to many programming
+        problems. Let's see how the factorial function we defined earlier would
+        work for an input of 4:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+          ```java
+            factorial(4) = 4 * factorial(3)
+                    = 4 * (3 * factorial(2))
+                    = 4 * (3 * (2 * factorial(1)))
+                    = 4 * (3 * (2 * (1 * factorial(0))))
+                    = 4 * (3 * (2 * (1 * 1)))
+                    = 24
+          ```
+          </md-block>
+    </section>
+  </div>
+</div>
+<script src="../static/prism.js"></script>
+{% endblock %}
