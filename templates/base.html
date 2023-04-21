@@ -18,10 +18,13 @@
       crossorigin="anonymous"
     ></script>
     <link href="../static/prism.css" rel="stylesheet" />
+    <link href="../static/fontawesome/css/fontawesome.css" rel="stylesheet" />
+    <link href="../static/fontawesome/css/brands.css" rel="stylesheet" />
+    <link href="../static/fontawesome/css/solid.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module" src="https://md-block.verou.me/md-block.js"></script>
     <title>{{ title }}</title>
-    <link rel="icon" type="image/x-icon" href="/static/robot_favicon.png" />
+    <link rel="icon" type="image/x-icon" href="../static/robot_favicon.png" />
   </head>
   {% endblock %}
   <body
@@ -87,4 +90,43 @@
     </nav>
     {% block content %} {% endblock %}
   </body>
+
+  <footer class="bg-dark text-center text-white {{footer}}">
+    <div class="container p-4 pb-0">
+      <section class="mb-4">
+        <!-- Email -->
+        <a
+          class="btn btn-outline-light btn-floating m-1"
+          href="mailto:jasonchen0429@gmail.com"
+          role="button"
+        >
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+
+        <!-- Linkedin -->
+        <a
+          class="btn btn-outline-light btn-floating m-1"
+          href="https://www.linkedin.com/in/picklejason/"
+          target="_blank"
+          role="button"
+        >
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+
+        <!-- Github -->
+        <a
+          class="btn btn-outline-light btn-floating m-1"
+          href="https://github.com/picklejason/cmsc-handbook"
+          target="_blank"
+          role="button"
+        >
+          <i class="fab fa-github"></i>
+        </a>
+      </section>
+    </div>
+
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      Made by Jason Chen
+    </div>
+  </footer>
 </html>

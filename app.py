@@ -52,7 +52,7 @@ def generate_reply(conversation: list) -> str:
 @app.route("/")
 def index():
     """Render the index page."""
-    return render_template("index.html", title="Home")
+    return render_template("index.html", title="Home", footer="fixed-bottom")
 
 
 @app.route("/cmsc131")
@@ -67,12 +67,12 @@ def cmsc132():
 
 @app.route("/resources")
 def resources():
-    return render_template("resources.html", title="Resources")
+    return render_template("resources.html", title="Resources", footer="fixed-bottom")
 
 
 @app.route("/chat")
 def chat():
-    return render_template("chat.html", title="Chat")
+    return render_template("chat.html", title="Chat", footer="fixed-bottom")
 
 
 @app.route("/transcribe", methods=["POST"])
