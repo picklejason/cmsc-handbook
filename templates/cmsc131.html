@@ -81,6 +81,9 @@
           <a href="#2-d arrays">2-D Arrays</a>
         </li>
         <li>
+          <a href="#arraylist">ArrayList</a>
+        </li>
+        <li>
           <a href="#stringbuffer">StringBuffer</a>
         </li>
         <li>
@@ -762,6 +765,92 @@
         character to move to the next row. In general, 2D arrays are useful when
         you need to represent data in a tabular format, such as a spreadsheet or
         a chess board.
+      </p>
+    </section>
+    <section id="arraylist">
+      <h2>ArrayList</h2>
+      <p>
+        The <code>ArrayList</code> class in Java is a resizable array, which can
+        be found in the java.util package. Unlike arrays, which are fixed in
+        size, an <code>ArrayList</code> in Java can grow or shrink as needed. An
+        <code>ArrayList</code> holds references to objects and cannot hold not
+        primitive data types (like <code>int</code>, <code>double</code>,
+        <code>char</code>, etc.). We need to specify the kind of object the
+        <code>ArrayList</code> will store. If we are storing any primitive type
+        then we need to use the appropriate wrapper (e.g., <code>Integer</code>)
+        Here's the basic syntax for creating an <code>ArrayList</code> in Java:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+        ```java
+          ArrayList&lt;Type&gt; listName = new ArrayList&lt;Type&gt;();
+        ```
+      </md-block>
+      <p>
+        Here, <code>Type</code> is the type of object the
+        <code>ArrayList</code> will store (e.g. <code>String</code>,
+        <code>Integer</code>, etc.), and listName is the name of the
+        <code>ArrayList</code>. Remember we cannot use primitive types while
+        creating an <code>ArrayList</code>. Instead, we have to use the
+        corresponding wrapper classes. For example, here's how you can create an
+        <code>ArrayList</code> to store integers:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+        ```java
+          ArrayList&lt;Integer&gt; numbers = new ArrayList&lt;Integer&gt;();
+        ```
+      </md-block>
+      <p>
+        This creates an ArrayList that can store integers where
+        <code>Integer</code> is the corresponding wrapper class of int. Here is
+        another example of how to create and use an <code>ArrayList</code> in
+        Java:
+      </p>
+      <!-- prettier-ignore -->
+      <md-block>
+        ```java
+        import java.util.ArrayList;
+
+        public class Main {
+            public static void main(String[] args) {
+                ArrayList&lt;String&gt; fruits = new ArrayList&lt;String&gt;();
+                
+                fruits.add("Apple");
+                fruits.add("Banana");
+                fruits.add("Orange");
+                
+                System.out.println(fruits); // Output: [Apple, Banana, Orange]
+                
+                fruits.remove("Banana");
+                
+                System.out.println(fruits); // Output: [Apple, Orange]
+                
+                System.out.println(fruits.get(1)); // Output: Orange
+                
+                System.out.println(fruits.size()); // Output: 2
+            }
+        }
+        ```
+      </md-block>
+      <p>
+        In this example, we first import the <code>ArrayList</code> class from
+        the <code>java.util</code> package. We then create a new ArrayList
+        object called fruits that can hold <code>String</code> values. We add
+        three elements to the fruits list using the <code>add()</code> method,
+        and then print the contents of the list using the
+        <code>toString()</code> method (which is called implicitly by the
+        <code>println()</code> method). We then remove the second element from
+        the list using the <code>remove()</code> method, and print the list
+        again to verify that the element has been removed. Next, we use the
+        <code>get()</code> method to retrieve the element at index 1 (which is
+        the second element, since ArrayList is zero-indexed), and print it to
+        the console. Finally, we use the <code>size()</code> method to get the
+        number of elements in the list, and print it to the console.
+        <code>ArrayList</code>
+        provides many other useful methods for manipulating and accessing its
+        elements, such as <code>set()</code>, <code>indexOf()</code>,
+        <code>contains()</code>, <code>clear()</code>and .
       </p>
     </section>
     <section id="stringbuffer">
