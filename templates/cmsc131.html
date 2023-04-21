@@ -469,12 +469,14 @@
       <p>
         In programming, loops are used to execute a set of statements repeatedly
         until a condition is met. In Java, there are mainly three types of
-        loops: for loop, while loop, and do-while loop.
+        loops: <code>for</code> loop, <code>while</code> loop, and
+        <code>do-while</code> loop.
       </p>
       <h5>For Loop</h5>
       <p>
-        The for loop is used to execute a set of statements for a fixed number
-        of times. Here's the basic syntax of the for loop in Java:
+        The <code>for</code> loop is used to execute a set of statements for a
+        fixed number of times. Here's the basic syntax of the
+        <code>for</code> loop in Java:
       </p>
       <!-- prettier-ignore -->
       <md-block>
@@ -490,7 +492,7 @@
         the condition is true, the statements inside the loop are executed;
         otherwise, the loop terminates. The increment/decrement statement is
         executed after each iteration of the loop. Here's an example of using
-        the for loop to print the numbers from 1 to 5:
+        the <code>for</code> loop to print the numbers from 1 to 5:
       </p>
       <!-- prettier-ignore -->
       <md-block>
@@ -502,9 +504,9 @@
       </md-block>
       <h5>While Loop</h5>
       <p>
-        The while loop is used to execute a set of statements repeatedly as long
-        as a condition is true. Here's the basic syntax of the while loop in
-        Java:
+        The <code>while</code> loop is used to execute a set of statements
+        repeatedly as long as a condition is true. Here's the basic syntax of
+        the <code>while</code> loop in Java:
       </p>
       <!-- prettier-ignore -->
       <md-block>
@@ -517,7 +519,8 @@
       <p>
         The condition is evaluated before each iteration of the loop. If the
         condition is true, the statements inside the loop are executed;
-        otherwise, the loop terminates. Here's an example of using the while
+        otherwise, the loop terminates. Here's an example of using the
+        <code>while</code>
         loop to print the numbers from 1 to 5:
       </p>
       <!-- prettier-ignore -->
@@ -532,10 +535,11 @@
       </md-block>
       <h5>Do-while Loop</h5>
       <p>
-        The do-while loop is similar to the while loop, except that the
-        condition is evaluated at the end of each iteration of the loop. This
-        means that the statements inside the loop are executed at least once.
-        Here's the basic syntax of the do-while loop in Java:
+        The <code>do-while</code> loop is similar to the
+        <code>while</code> loop, except that the condition is evaluated at the
+        end of each iteration of the loop. This means that the statements inside
+        the loop are executed at least once. Here's the basic syntax of the
+        <code>do-while</code> loop in Java:
       </p>
       <!-- prettier-ignore -->
       <md-block>
@@ -568,7 +572,8 @@
         <code>continue</code>, and <code>return</code>. break is used to
         terminate a loop early, continue is used to skip the current iteration
         of a loop, and return is used to exit a method. Here's an example of
-        using break and continue in a for loop:
+        using <code>break</code> and <code>continue</code> in a
+        <code>for</code> loop:
       </p>
 
       <!-- prettier-ignore -->
@@ -647,8 +652,9 @@
       </md-block>
     <h5>Iterating over an Array</h5>
     <p>
-      To iterate over an array, you can use a for loop. For example, to print
-      all the elements in the array, you can use the following code:
+      To iterate over an array, you can use a <code>for</code> loop. For
+      example, to print all the elements in the array, you can use the following
+      code:
     </p>
     <!-- prettier-ignore -->
     <md-block>
@@ -856,13 +862,17 @@
     <section id="stringbuffer">
       <h2>StringBuffer</h2>
       <p>
-        The StringBuffer class in Java is used to create mutable (modifiable)
-        strings. Unlike String objects, which are immutable, StringBuffer
-        objects can be modified. This means that you can change the characters
-        in a StringBuffer object after it has been created.
+        The <code>StringBuffer</code> class in Java is used to create mutable
+        (modifiable) strings. Unlike <code>String</code> objects, which are
+        immutable, <code>StringBuffer</code> objects can be modified. This means
+        that you can change the characters in a <code>StringBuffer</code> object
+        after it has been created.
       </p>
       <h5>Creating a StringBuffer</h5>
-      <p>To create a StringBuffer object, you can use the following syntax:</p>
+      <p>
+        To create a <code>StringBuffer</code> object, you can use the following
+        syntax:
+      </p>
       <!-- prettier-ignore -->
       <md-block>
             ```java
@@ -870,10 +880,11 @@
             ```
           </md-block>
       <p>
-        This creates an empty StringBuffer object with a default capacity of 16
-        characters. You can also specify the initial capacity of the
-        StringBuffer object when you create it. For example, the following code
-        creates a StringBuffer object with an initial capacity of 32 characters:
+        This creates an empty <code>StringBuffer</code> object with a default
+        capacity of 16 characters. You can also specify the initial capacity of
+        the <code>StringBuffer</code> object when you create it. For example,
+        the following code creates a <code>StringBuffer</code> object with an
+        initial capacity of 32 characters:
       </p>
       <!-- prettier-ignore -->
       <md-block>
@@ -882,9 +893,10 @@
             ```
           </md-block>
       <p>
-        You can also create a StringBuffer object from a String object. For
-        example, the following code creates a StringBuffer object from the
-        String object "Hello World":
+        You can also create a <code>StringBuffer</code> object from a
+        <code>String</code> object. For example, the following code creates a
+        <code>StringBuffer</code> object from the <code>String</code> object
+        "Hello World":
       </p>
       <!-- prettier-ignore -->
       <md-block>
@@ -894,13 +906,13 @@
           </md-block>
       <h5>Modifying a StringBuffer</h5>
       <p>
-        Once you have created a StringBuffer object, you can modify it by using
-        the following methods:
+        Once you have created a <code>StringBuffer</code> object, you can modify
+        it by using the following methods:
       </p>
       <ul>
         <li>
           <code>sb.append(string)</code> - concatenates the specified string to
-          the end of the StringBuffer object
+          the end of the <code>StringBuffer</code> object
         </li>
         <li>
           <code>sb.insert(index, string)</code> - inserts the specified string
@@ -908,12 +920,12 @@
         </li>
         <li>
           <code>sb.replace(beginIndex, endIndex, string)</code> - replaces the
-          characters in a substring of the StringBuffer object with the
-          specified string
+          characters in a substring of the <code>StringBuffer</code> object with
+          the specified string
         </li>
         <li>
           <code>sb.delete(beginIndex, endIndex)</code> - removes the characters
-          in a substring of the StringBuffer object
+          in a substring of the <code>StringBuffer</code> object
         </li>
       </ul>
     </section>
@@ -1045,8 +1057,8 @@
         the day of the week based on the value of <code>dayOfWeek</code>. If
         <code>dayOfWeek</code> is 3, the code block following the
         <code>case 3</code>: statement is executed, and <code>dayName</code> is
-        set to "Wednesday". The final output of the program is "Today is
-        Wednesday".
+        set to <code>"Wednesday"</code>. The final output of the program is
+        <code>"Today is Wednesday"</code>.
       </p>
     </section>
     <section id="ternary-operator">
@@ -1063,10 +1075,11 @@
             ```
           </md-block>
       <p>
-        Here, booleanExpression is the expression that is evaluated to either
-        true or false. If the expression is true, then the value value1 is
-        returned, otherwise the value value2 is returned. For example, consider
-        the following code snippet:
+        Here, <code>booleanExpression</code> is the expression that is evaluated
+        to either <code>true</code> or <code>false</code>. If the expression is
+        true, then the value <code>value1</code> is returned, otherwise the
+        value <code>value2</code> is returned. For example, consider the
+        following code snippet:
       </p>
       <!-- prettier-ignore -->
       <md-block>
@@ -1076,10 +1089,11 @@
             ```
           </md-block>
       <p>
-        Here, we use the ternary operator to assign the value of y. The boolean
-        expression x > 5 evaluates to true because x is indeed greater than 5.
-        Therefore, the value of y is set to 20. If the expression had evaluated
-        to false, the value of y would have been set to 30. Note that the
+        Here, we use the ternary operator to assign the value of <code>y</code>.
+        The boolean expression <code>x > 5</code> evaluates to true because
+        <code>x</code> is indeed greater than 5. Therefore, the value of
+        <code>y</code> is set to 20. If the expression had evaluated to false,
+        the value of <code>y</code> would have been set to 30. Note that the
         ternary operator should only be used for simple if-else statements that
         return a single value. For more complex logic, it is recommended to use
         a full if-else statement for clarity and readability.
